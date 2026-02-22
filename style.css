@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 100svh;   /* 👈 mobile-safe viewport */
+  overflow: hidden;
+}
+/* IMAGE LAYER (middle reveal) */
+.image-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.image-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* PANELS */
+.panel {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 50svh;   /* 👈 not vh */
+  background: #f6e4df;
+  z-index: 2;
+  overflow: hidden;
+}
+.panel-top {
+  top: 0;
+}
+
+.panel-bottom {
+  bottom: 0;
+}
+
+/* TEXT */
+.word {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Anton', sans-serif; /* important */
+  font-size: 28vw;
+  line-height: 1;
+  color: #ff2b2b;
+  white-space: nowrap;
+}
+
+/* CRITICAL PART — PERFECT SPLIT ALIGNMENT */
+
+.panel-top .word {
+  bottom: -60%;   /* pulls text down so only bottom half shows */
+}
+
+.panel-bottom .word {
+  top: -52%;      /* pulls text up so only top half shows */
+}
+
+/* ================= ABOUT STRIP ================= */
+
+.about-strip {
+  height: 180vh;
+  background: #f6e4df;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+.hero-spacer {
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+.strip {
+  width: 100%;
+  overflow: hidden;
+}
+
+.strip-main {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.strip-vertical {
+  position: absolute;
+  top: 90%;
+  left: 190%;
+  transform: translate(-150%, -150%) rotate(-6deg);
+  width: 180%;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  animation:reverse;
+}
+
+.strip-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.strip span {
+  font-family: 'Anton', sans-serif;
+  font-size: 22vw;        /* bigger for drama */
+  font-weight: 350;       /* Anton is already heavy */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ff2b2b;
+  padding-right: 80px;
+}
+/* ================= ABOUT INTRO ================= */
+
+.about-intro {
+  max-width: 650px;
+  padding: 120px 40px 80px 40px;
+}
+
+.about-intro h5 {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ff2b2b;
+  margin-bottom: 20px;
+}
+
+.about-intro p {
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #ff2b2b;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects {
+  background: #f6e4df;
+  padding: 140px 40px 120px 40px;
+}
+
+.projects-intro {
+  max-width: 600px;
+}
+
+.projects-intro h5 {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ff2b2b;
+  margin-bottom: 20px;
+}
+
+.projects-intro p {
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #ff2b2b;
+}
+/* ================= UI ================= */
+
+
+.menu {
+  position: fixed;
+  inset: 0;
+  background: #f6e4df;
+  z-index: 200; /* MUST be higher than .ui */
+  transform: translateY(-100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.menu-inner a {
+  font-size: 60px;
+  font-weight: 900;
+  color: #ff2b2b;
+  text-decoration: none;
+}
+.ui {
+  position: fixed;
+  inset: 0;
+  z-index: 60; /* ABOVE everything */
+}
+
+.ui-left {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff2b2b;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: #000;
+}
+
+.ui-right {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.menu-dot {
+  width: 12px;
+  height: 12px;
+  background: #ff2b2b;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ui-bottom-left {
+  position: absolute;
+  bottom: 40px;
+  left: 24px;
+}
+
+.ui-bottom-right {
+  position: absolute;
+  bottom: 40px;
+  right: 24px;
+}
+
+.ui-bottom-left a,
+.ui-bottom-right a {
+  font-size: 14px;
+  color: #ff2b2b;
+  text-decoration: none;
+}
+
+.ui-center {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.ui-center p {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff2b2b;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: 100svh;
+  }
+
+  .panel {
+    position: absolute;   /* 🔥 change from fixed */
+    height: 50%;
+  }
+
+  .image-layer {
+    position: absolute;   /* 🔥 change from fixed */
+  }
+
+}
